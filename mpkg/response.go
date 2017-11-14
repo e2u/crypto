@@ -59,8 +59,10 @@ func (re *Response) Verify() error {
 	return wcrypto.PublicKeyVerify(signByte, []byte(re.sortedParams()), crypto.SHA1, re.KeyPair.PublicKey)
 }
 
-//  处理body
+//  处理body,这里不负责将 body 做base64 编码,应该在外部做好处理再传进来
 func (re *Response) processBody() error {
+	// re.Body = base64.StdEncoding.EncodeToString([]byte(re.Body))
+
 	if !re.Encrypt {
 		return nil
 	}

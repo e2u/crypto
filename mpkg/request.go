@@ -42,7 +42,6 @@ func (r *Request) sortedParams() string {
 	MakeRaws(&raws, "body", r.Body)
 	MakeRaws(&raws, "timestamp", r.Timestamp.Format(time.RFC3339))
 	MakeRaws(&raws, "termip", r.TermIP)
-	MakeRaws(&raws, "sign", r.Sign)
 	MakeRaws(&raws, "encrypt", r.Encrypt)
 	MakeRaws(&raws, "symkey", r.Symkey)
 	sort.Strings(raws)

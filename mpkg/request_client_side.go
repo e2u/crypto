@@ -71,7 +71,6 @@ func (r *Request) processBody() error {
 }
 
 func (r *Request) signature() error {
-	fmt.Println(r.sortedParams())
 	sign, err := wcrypto.PrivateKeySign([]byte(r.sortedParams()), crypto.SHA1, r.KeyPair.PrivateKey)
 	if err != nil {
 		return err

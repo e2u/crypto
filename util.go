@@ -166,3 +166,9 @@ func ofbEnc(block cipher.Block, key, iv, src []byte, padding string) ([]byte, er
 func ofbDec(block cipher.Block, key, iv, src []byte, padding string) ([]byte, error) {
 	return ofbEnc(block, key, iv, src, "nopadding")
 }
+
+func MakeRandByte(l int) []byte {
+	b := make([]byte, l)
+	rand.Read(b)
+	return b
+}

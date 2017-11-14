@@ -43,7 +43,7 @@ func NewDES(c string) DES {
 	return a
 }
 
-// Encrypter 动态向量加密
+// Encrypter 动态向量加密,ecb 模式忽略 iv
 func (a DES) Encrypter(key, src []byte) ([]byte, []byte, error) {
 	iv, err := genIV(des.BlockSize)
 	if err != nil {
